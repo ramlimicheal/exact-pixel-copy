@@ -1,24 +1,28 @@
-# Exact Pixel Copy
+# Enra Agency — Creative Digital Agency Template
 
-pixel perfect clone of how this is
+An exact pixel-perfect static deployment of the **Enra Agency** template, decoupled and optimized for deployment on Lovable, Vercel, Netlify, and Cloudflare Pages.
 
-This project was built with [Lovable](https://lovable.dev).
+## 🚀 Key Pages & Structure
+- **Home**: `index.html`
+- **About**: `about/index.html`
+- **Projects Showcase**: `projects/index.html`
+  - `projects/aura-skin-e-commerce/index.html`
+  - `projects/finflow/index.html`
+  - `projects/medichat-triage-assistant/index.html`
+  - `projects/nexus-logistics/index.html`
+  - `projects/structura-lead-gen-campaign/index.html`
+  - `projects/urban-kicks/index.html`
+- **Blog & Articles**: `blog/index.html` (8 full articles)
+- **Contact**: `contact/index.html`
+- **Legal**: `privacy/index.html`, `terms/index.html`
 
-## Build with Lovable
+## 🛠️ Tech Stack & Assets
+- **Static HTML5 / CSS3 / ES Modules**
+- **Assets**: 112+ WebP and SVG images bundled locally in `_external/`
+- **Typography**: Self-hosted Google Geist and Geist Mono font weights
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/b19f53d9-54a7-4d1a-9077-beb12f2b9e4f).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+## ⚡ Development & Preview
+```bash
+npm install
 npm run dev
 ```
