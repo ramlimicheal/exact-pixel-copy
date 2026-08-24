@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#fdfdfd] text-[#181d27];
+  }
+}
+
+.grid-background {
+  background-size: 128px 128px;
+  background-image: 
+    linear-gradient(to right, rgba(222, 224, 229, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(222, 224, 229, 0.4) 1px, transparent 1px);
+}
+
+.glow-gradient {
+  background: radial-gradient(circle at 60% 40%, rgba(255, 226, 40, 0.35) 0%, rgba(116, 245, 161, 0.25) 45%, transparent 70%);
+}
