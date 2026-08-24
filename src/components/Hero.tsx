@@ -1,89 +1,120 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const logos = [
+  'Acme Corp', 'NextGen', 'Pulse AI', 'Lumina', 'Vortex', 'Apex Global', 'Zenith Systems'
+];
+
 export const Hero: React.FC = () => {
-  const [time, setTime] = useState('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setTime(now.toLocaleTimeString('en-US', { timeZone: 'Europe/Berlin', hour: 'numeric', minute: '2-digit', second: '2-digit' }));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-center overflow-hidden border-b border-[#dee0e5] grid-background">
-      {/* Glow effect */}
-      <div className="absolute top-10 right-10 w-[650px] h-[500px] glow-gradient pointer-events-none rounded-full blur-3xl opacity-70" />
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-100/40 rounded-full blur-3xl -z-10 pointer-events-none" />
 
-      <div className="max-w-[1440px] w-full mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-        
-        {/* Left Column: Heading & Subtitle */}
-        <div className="lg:col-span-7 space-y-8">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#181d27] leading-[1.08]">
-            Smart design meets seamless development
-          </h1>
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        {/* Availability Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold uppercase tracking-wider mb-8"
+        >
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Available for Q3/Q4 Projects</span>
+        </motion.div>
 
-          <p className="text-lg md:text-xl text-[#181d27]/80 max-w-xl leading-relaxed font-normal">
-            From concept to launch, we craft digital solutions that blend creativity, technology, and strategy.
-          </p>
+        {/* Main Headline with Stagger */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-neutral-900 tracking-tight max-w-4xl mx-auto leading-[1.08]"
+        >
+          Designs that drive <span className="text-emerald-600 underline decoration-emerald-300 underline-offset-8">revenue</span>, without the agency bloat.
+        </motion.h1>
 
-          <div className="flex items-center gap-4 pt-2">
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mt-6 text-lg sm:text-xl text-neutral-600 max-w-2xl mx-auto font-normal leading-relaxed"
+        >
+          We partner with high-growth startups and tech leaders to craft bespoke digital products, brand identities, and high-converting web experiences.
+        </motion.p>
+
+        {/* Call to Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-neutral-900 text-white font-medium text-base hover:bg-neutral-800 transition-all shadow-lg shadow-neutral-900/10"
+            >
+              <span>Book a discovery call</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
             <Link
               to="/projects"
-              className="inline-flex items-center justify-center bg-[#181d27] hover:bg-black text-white text-xs font-semibold uppercase tracking-wider px-6 py-3.5 rounded-sm transition-all duration-200"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-neutral-100 text-neutral-800 font-medium text-base hover:bg-neutral-200 transition-all"
             >
-              SEE WHAT WE DO
+              <span>View our work</span>
             </Link>
-          </div>
+          </motion.div>
+        </motion.div>
 
-          {/* Berlin Time Tag */}
-          <div className="flex items-center gap-2 pt-6 text-xs text-[#181d27]/70 font-mono">
-            <span>BERLIN</span>
-            <span>•</span>
-            <span>{time || '5:45:26 PM'}</span>
+        {/* Social Proof Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="mt-12 flex items-center justify-center gap-8 text-xs sm:text-sm text-neutral-500 font-medium"
+        >
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+            <span>4.9/5 Average Rating</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+            <span>50+ Shipped Products</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+            <span>2-3 Week Turnaround</span>
+          </div>
+        </motion.div>
+
+        {/* Infinite Logo Ticker */}
+        <div className="mt-20 pt-10 border-t border-neutral-100">
+          <p className="text-xs uppercase tracking-widest text-neutral-400 font-semibold mb-6">
+            Trusted by teams at modern tech companies
+          </p>
+          <div className="flex overflow-hidden relative [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
+            <motion.div
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}
+              className="flex items-center gap-16 shrink-0 pr-16"
+            >
+              {[...logos, ...logos].map((logo, index) => (
+                <span
+                  key={index}
+                  className="text-lg font-bold text-neutral-400/80 hover:text-neutral-900 transition-colors tracking-tight whitespace-nowrap"
+                >
+                  {logo}
+                </span>
+              ))}
+            </motion.div>
           </div>
         </div>
-
-        {/* Right Column: Floating Consultation Card */}
-        <div className="lg:col-span-5 flex justify-end">
-          <div className="w-full max-w-md bg-white border border-[#dee0e5] p-8 shadow-xl rounded-sm backdrop-blur-md">
-            <h3 className="text-xl font-bold text-[#181d27] mb-6 leading-snug">
-              30 minute call to get a first consultation, for FREE
-            </h3>
-
-            <div className="flex items-center justify-between gap-4 pt-4 border-t border-[#dee0e5]/60">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full overflow-hidden border border-[#dee0e5] bg-gray-100 flex-shrink-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
-                    alt="Naomi Gills"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-sm text-[#181d27]">Naomi Gills</h4>
-                  <p className="text-xs text-[#181d27]/70 font-medium">Marketing Manager</p>
-                </div>
-              </div>
-
-              <a
-                href="https://cal.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#74f5a1] hover:bg-[#60e08e] text-[#181d27] font-semibold text-xs uppercase tracking-wider px-4 py-3 rounded-sm transition-all duration-200 flex-shrink-0"
-              >
-                <span>BOOK A FREE CALL</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   );
